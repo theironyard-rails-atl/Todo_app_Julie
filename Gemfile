@@ -27,12 +27,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails'
 end
 
 group :test do
   gem 'capybara'
-  gem 'shoulda-matchers', '~> 2.6.0'
+  gem 'shoulda-matchers'
 end
 
 gem 'rspec-activemodel-mocks'
