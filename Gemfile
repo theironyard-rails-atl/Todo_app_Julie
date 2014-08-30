@@ -32,6 +32,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'shoulda-matchers', '~> 2.6.0'
 end
 
 gem 'rspec-activemodel-mocks'
