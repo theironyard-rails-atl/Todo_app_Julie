@@ -31,7 +31,7 @@ describe "Creating todo lists" do
     expect(page).not_to have_content("List of my Todos")
   end
 
-  it "displays error when the title is less than three characters" do
+  it "displays error when the title is less than 5 characters" do
     expect(TodoList.count).to eq(0)
 
     visit '/todo_lists'
