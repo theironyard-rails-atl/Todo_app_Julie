@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Adding ToDo Items" do
-  let!(:todo_list) {TodoList.create(title:       "Groceries"
+  let!(:todo_list) {TodoList.create(title:       "Groceries",
                                     description: "Grocery List")}
 
   def visit_todo_list(list)
@@ -31,7 +31,7 @@ describe "Adding ToDo Items" do
     fill_in "Content", with: ""
     click_button "Save"
 
-    within("div.flash")
+    within("div.flash") do
       expect(page).to have_content("Todo item could not be added.")
     end
     expect(page).to have_content("Content can't be blank")
@@ -44,7 +44,7 @@ describe "Adding ToDo Items" do
       fill_in "Content", with: "a"
       click_button "Save"
 
-      within("div.flash")
+      within("div.flash") do
         expect(page).to have_content("Todo item could not be added.")
       end
       expect(page).to have_content("Content is too short.")

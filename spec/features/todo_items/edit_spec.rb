@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Editing ToDo Items" do
-  let!(:todo_list) {TodoList.create(title:       "Groceries"
+  let!(:todo_list) {TodoList.create(title:       "Groceries",
                                     description: "Grocery List")}
   let!(:todo_item) {todo_list.todo_items.create(content: "Milk")}
 
