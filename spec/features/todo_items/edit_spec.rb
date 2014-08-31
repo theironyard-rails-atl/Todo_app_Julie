@@ -5,19 +5,12 @@ describe "Editing ToDo Items" do
                                     description: "Grocery List")}
   let!(:todo_item) {todo_list.todo_items.create(content: "Milk")}
 
-  def visit_todo_list(list)
-    visit '/todo_lists'
-
-    within 'todo_list_#{list.id}' do
-      click_link "List Items"
-    end
-  end
-
   it "is successful with valid content" do
-    visit_todo_lists(todo_list)
-    within 'todo_items_#{item.id}' do
+    visit_todo_list(todo_list)
+    within("#todo_item_#{todo_item.id}") do
       click_link "Edit"
     end
+    expect(page).to have_content("Editing Todo List Item")
 
     fill_in "Content", with: "Lots of Milk"
     click_button "Save"
@@ -27,7 +20,7 @@ describe "Editing ToDo Items" do
   end
 
   it "fails with no content" do
-    visit_todo_lists(todo_list)
+    visit_todo_list(todo_list)
     within 'todo_items_#{item.id}' do
       click_link "Edit"
     end
@@ -41,7 +34,7 @@ describe "Editing ToDo Items" do
   end
 
   it "fails with not enough content" do
-    visit_todo_lists(todo_list)
+    visit_todo_list(todo_list)
     within 'todo_items_#{item.id}' do
       click_link "Edit"
     end

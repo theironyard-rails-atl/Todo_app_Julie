@@ -4,13 +4,13 @@ describe "Adding ToDo Items" do
   let!(:todo_list) {TodoList.create(title:       "Groceries",
                                     description: "Grocery List")}
 
-  def visit_todo_list(list)
-    visit '/todo_lists'
+def visit_todo_list(list)
+  visit "/todo_lists"
 
-    within 'todo_list_#{list.id}' do
-      click_link "List Items"
-    end
+  within 'todo_list_#{list.id}' do
+    click_link "List Items"
   end
+end
 
   it "is successful when adding valid todo items" do
     visit_todo_list(todo_list)

@@ -4,14 +4,6 @@ describe "Viewing Todo Items" do
 let!(:todo_list) {TodoList.create(title:       "Groceries",
                                   description: "Grocery list")}
 
-def visit_todo_list(list)
-  visit '/todo_lists'
-
-  within 'todo_list_#{list.id}' do
-    click_link "List Items"
-  end
-end
-
   it "displays no items when a todo list is empty" do
     visit_todo_list(todo_list)
 
